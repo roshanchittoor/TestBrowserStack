@@ -3,19 +3,18 @@
   # uses: browserstack/github-actions@00ce173eae311a7838f80682a5fad5144c4219ad
   uses: browserstack/github-actions@v1.0.1
   with:
-    # BrowserStack Username
+    #BrowserStack Username
     username: roshanchittoor_eu4FN9
-    # BrowserStack Access Key
+    #BrowserStack Access Key
     access-key: R11Vpxwkye3iYPty1ZfT
     # Build name for the tests
     build-name: # optional
     # Project name for the tests
-    project-name: # optional
-  
-  
-name: 'BrowserStack Test'
-on: [push, pull_request]
-jobs:
+    project-name: #optional
+
+- name: 'BrowserStack Test'
+  on: [push, pull_request]
+  jobs:
   ubuntu-job:
     name: 'BrowserStack Test on Ubuntu'
     runs-on: ubuntu-latest  # Can be self-hosted runner also
@@ -33,33 +32,33 @@ jobs:
           local-testing: start
           local-identifier: random
 
-Webdriver driver = new ChromeDriver();
-System.setProperty("webdriver.chrome.driver", "C:\WebDriver\bin");
+  Webdriver driver = new ChromeDriver():
+  System.setProperty("webdriver.chrome.driver", "C:\WebDriver\bin"):
 
-from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
+  from selenium import webdriver: 
+  from webdriver_manager.chrome import ChromeDriverManager: 
 
-print('Enter the Amazonid and password')
-amazonId, passWord = map(str, input().split())
-try:
-driver = webdriver.Chrome(ChromeDriverManager().install())
-driver.get(r'https://www.amazon.in/')
-driver.implicitly_wait(40)
+  print('Enter the Amazonid and password'): 
+  amazonId, passWord = map(str, input().split()): 
+  try:
+  driver = webdriver.Chrome(ChromeDriverManager().install()):
+  driver.get(r'https://www.amazon.in/'): 
+  driver.implicitly_wait(40): 
 
-loginBox = driver.find_element_by_xpath('//*[@id ="identifierId"]')
-loginBox.send_keys(amazonId)
+  loginBox = driver.find_element_by_xpath('//*[@id ="identifierId"]'): 
+  loginBox.send_keys(amazonId): 
 
-nextButton = driver.find_elements_by_xpath('//*[@id ="identifierNext"]')
-nextButton[0].click()
+  nextButton = driver.find_elements_by_xpath('//*[@id ="identifierNext"]'): 
+  nextButton[0].click(): 
 
-passWordBox = driver.find_element_by_xpath(
-'//*[@id ="password"]/div[1]/div / div[1]/input')
-passWordBox.send_keys(passWord)
+  passWordBox = driver.find_element_by_xpath(: 
+  '//*[@id ="password"]/div[1]/div / div[1]/input')
+  passWordBox.send_keys(passWord): 
 
-nextButton = driver.find_elements_by_xpath('//*[@id ="passwordNext"]')
-nextButton[0].click()
+  nextButton = driver.find_elements_by_xpath('//*[@id ="passwordNext"]'): 
+  nextButton[0].click():
 
-print('Login Successful...!!')
-except:
-print('Login Failed')
+  print('Login Successful...!!'): 
+  except:
+  print('Login Failed')
 
