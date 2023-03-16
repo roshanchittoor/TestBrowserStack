@@ -8,7 +8,8 @@ localIdentifier = os.environ['BROWSERSTACK_LOCAL_IDENTIFIER']
 buildName = os.environ['BROWSERSTACK_BUILD_NAME']
 projectName = os.environ['BROWSERSTACK_PROJECT_NAME']
 
-desired_cap = {
+desired_cap = 
+{
  'os': 'Windows',
  'os_version': '10',
  'browser': 'Chrome',
@@ -18,6 +19,7 @@ desired_cap = {
  'build': buildName,
  'project': projectName
 }
+
 driver = webdriver.Remote(
     command_executor='https://'+userName+':'+accessKey+'@hub-cloud.browserstack.com/wd/hub',
     desired_capabilities=desired_cap)
