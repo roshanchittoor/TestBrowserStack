@@ -12,7 +12,7 @@ projectName = os.environ['BROWSERSTACK_PROJECT_NAME']
 
 bstack_options = 
 {
-    "os" : "Windows",
+    "os" : "ubuntu-latest",
     "osVersion" : "10",
     "buildName" : "BStack Build Name: " + buildName,
     "projectName" : "BStack Project Name: " + projectName,
