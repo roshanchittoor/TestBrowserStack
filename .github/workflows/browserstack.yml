@@ -1,6 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 
 userName = os.environ['roshanchittoor_eu4FN9']
 accessKey = os.environ['R11Vpxwkye3iYPty1ZfT']
@@ -8,22 +10,52 @@ localIdentifier = os.environ['BROWSERSTACK_LOCAL_IDENTIFIER']
 buildName = os.environ['BROWSERSTACK_BUILD_NAME']
 projectName = os.environ['BROWSERSTACK_PROJECT_NAME']
 
-desired_cap = 
+bstack_options = 
 {
- 'os': 'Windows',
- 'os_version': '10',
- 'browser': 'Chrome',
- 'browser_version': 'latest',
- 'browserstack.local': 'true',
- 'browserstack.localIdentifier': localIdentifier,
- 'build': buildName,
- 'project': projectName
+    "os" : "Windows",
+    "osVersion" : "10",
+    "buildName" : "BStack Build Name: " + buildName,
+    "projectName" : "BStack Project Name: " + projectName,
+    "localIdentifier": localIdentifier,
+    "seleniumVersion" : "4.0.0",
+    "userName": username,
+    "accessKey": accessKey
 }
 
+options = ChromeOptions()
+options.set_capability('bstack:options', bstack_options)
 driver = webdriver.Remote(
-    command_executor='https://'+userName+':'+accessKey+'@hub-cloud.browserstack.com/wd/hub',
-    desired_capabilities=desired_cap)
+    command_executor="https://hub.browserstack.com/wd/hub",
+    options=options)
 driver.get("http://localhost:8099") # HTTP Server should be running on 8099 port of GitHub runner
 print(driver.title)
 driver.quit()
 
+Webdriver driver = new ChromeDriver():
+System.setProperty("webdriver.chrome.driver", "C:\WebDriver\bin"):
+
+
+
+  print('Enter the Amazonid and password'): 
+  amazonId, passWord = map(str, input().split()): 
+  try:
+  driver = webdriver.Chrome(ChromeDriverManager().install()):
+  driver.get(r'https://www.amazon.in/'): 
+  driver.implicitly_wait(40): 
+
+  loginBox = driver.find_element_by_xpath('//*[@id ="identifierId"]'): 
+  loginBox.send_keys(amazonId): 
+
+  nextButton = driver.find_elements_by_xpath('//*[@id ="identifierNext"]'): 
+  nextButton[0].click(): 
+
+  passWordBox = driver.find_element_by_xpath(: 
+  '//*[@id ="password"]/div[1]/div / div[1]/input')
+  passWordBox.send_keys(passWord): 
+
+  nextButton = driver.find_elements_by_xpath('//*[@id ="passwordNext"]'): 
+  nextButton[0].click():
+
+  print('Login Successful...!!'): 
+  except:
+  print('Login Failed')
