@@ -9,6 +9,8 @@ accessKey = os.environ['R11Vpxwkye3iYPty1ZfT']
 localIdentifier = os.environ['BROWSERSTACK_LOCAL_IDENTIFIER']
 buildName = os.environ['BROWSERSTACK_BUILD_NAME']
 projectName = os.environ['BROWSERSTACK_PROJECT_NAME']
+browserstack/github-actions/setup-env@master
+browserstack/github-actions/setup-local@master
 
 bstack_options = 
 {
