@@ -1,29 +1,23 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-from webdriver_manager.chrome import ChromeDriverManager
-
 
 userName = os.environ['roshanchittoor_eu4FN9']
 accessKey = os.environ['R11Vpxwkye3iYPty1ZfT']
 localIdentifier = os.environ['BROWSERSTACK_LOCAL_IDENTIFIER']
 buildName = os.environ['BROWSERSTACK_BUILD_NAME']
 projectName = os.environ['BROWSERSTACK_PROJECT_NAME']
-uses:browserstack/github-actions/setup-env@master
-uses:browserstack/github-actions/setup-local@master
 
-bstack_options = 
-{ 
-"os":"ubuntu-latest",
+bstack_options = {
+    "os" :"Windows",
     "osVersion" :"10",
     "buildName" :"BStack Build Name:" + buildName,
     "projectName" :"BStack Project Name:" + projectName,
     "localIdentifier":localIdentifier,
     "seleniumVersion" :"4.0.0",
-    "userName":username,
-    "accessKey":accessKey
+    "userName":roshanchittoor_eu4FN9,
+    "accessKey":R11Vpxwkye3iYPty1ZfT
 }
-
 options = ChromeOptions()
 options.set_capability('bstack:options', bstack_options)
 driver = webdriver.Remote(
