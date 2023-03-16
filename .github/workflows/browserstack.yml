@@ -9,8 +9,8 @@ jobs:
       - name: 'BrowserStack Env Setup'  # Invokes the setup-env action
         uses: browserstack/github-actions/setup-env@master
         with:
-          username:  ${{ secrets.roshanchittoor_eu4FN9 }}
-          access-key: ${{ secrets.R11Vpxwkye3iYPty1ZfT }}
+          username: roshanchittoor_eu4FN9
+          access-key: R11Vpxwkye3iYPty1ZfT
 
       - name: 'BrowserStack Local Tunnel Setup'  # Invokes the setup-local action
         uses: browserstack/github-actions/setup-local@master
