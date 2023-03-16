@@ -21,7 +21,7 @@ jobs:
 # The next 3 steps are for building the web application to be tested and starting the web server on the runner environment
 
       - name: 'Running application under test'
-        run: ./seleniumscript.side
+        run: seleniumscript.side
 
       - name: 'Running test on BrowserStack'  # Invokes the actual test script that would run on BrowserStack browsers
         run: seleniumscript.side  # See sample test script above
