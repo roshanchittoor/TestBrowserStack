@@ -13,15 +13,15 @@ browserstack/github-actions/setup-env@master
 browserstack/github-actions/setup-local@master
 
 bstack_options = 
-{
-    "os" : "ubuntu-latest",
-    "osVersion" : "10",
-    "buildName" : "BStack Build Name: " + buildName,
-    "projectName" : "BStack Project Name: " + projectName,
-    "localIdentifier": localIdentifier,
-    "seleniumVersion" : "4.0.0",
-    "userName": username,
-    "accessKey": accessKey
+{ 
+"os":"ubuntu-latest",
+    "osVersion" :"10",
+    "buildName" :"BStack Build Name:" + buildName,
+    "projectName" :"BStack Project Name:" + projectName,
+    "localIdentifier":localIdentifier,
+    "seleniumVersion" :"4.0.0",
+    "userName":username,
+    "accessKey":accessKey
 }
 
 options = ChromeOptions()
