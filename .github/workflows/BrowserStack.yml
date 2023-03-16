@@ -1,64 +1,28 @@
-- name: BrowserStack Actions
-  # You may pin to the exact commit or the version.
-  # uses: browserstack/github-actions@00ce173eae311a7838f80682a5fad5144c4219ad
-  uses: browserstack/github-actions@v1.0.1
-  with:
-    #BrowserStack Username
-    username: roshanchittoor_eu4FN9
-    #BrowserStack Access Key
-    access-key: R11Vpxwkye3iYPty1ZfT
-    # Build name for the tests
-    build-name: # optional
-    # Project name for the tests
-    project-name: #optional
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
-- name: 'BrowserStack Test'
-  on: [push, pull_request]
-  jobs:
-  ubuntu-job:
-    name: 'BrowserStack Test on Ubuntu'
-    runs-on: ubuntu-latest  # Can be self-hosted runner also
-    steps:
+userName = os.environ['roshanchittoor_eu4FN9']
+accessKey = os.environ['R11Vpxwkye3iYPty1ZfT']
+localIdentifier = os.environ['BROWSERSTACK_LOCAL_IDENTIFIER']
+buildName = os.environ['BROWSERSTACK_BUILD_NAME']
+projectName = os.environ['BROWSERSTACK_PROJECT_NAME']
 
-      - name: 'BrowserStack Env Setup'  # Invokes the setup-env action
-        uses: browserstack/github-actions/setup-env@master
-        with:
-          username:  ${{ secrets.roshanchittoor_eu4FN9 }}
-          access-key: ${{ secrets.R11Vpxwkye3iYPty1ZfT }}
-
-      - name: 'BrowserStack Local Tunnel Setup'  # Invokes the setup-local action
-        uses: browserstack/github-actions/setup-local@master
-        with:
-          local-testing: start
-          local-identifier: random
-
-  Webdriver driver = new ChromeDriver():
-  System.setProperty("webdriver.chrome.driver", "C:\WebDriver\bin"):
-
-  from selenium import webdriver: 
-  from webdriver_manager.chrome import ChromeDriverManager: 
-
-  print('Enter the Amazonid and password'): 
-  amazonId, passWord = map(str, input().split()): 
-  try:
-  driver = webdriver.Chrome(ChromeDriverManager().install()):
-  driver.get(r'https://www.amazon.in/'): 
-  driver.implicitly_wait(40): 
-
-  loginBox = driver.find_element_by_xpath('//*[@id ="identifierId"]'): 
-  loginBox.send_keys(amazonId): 
-
-  nextButton = driver.find_elements_by_xpath('//*[@id ="identifierNext"]'): 
-  nextButton[0].click(): 
-
-  passWordBox = driver.find_element_by_xpath(: 
-  '//*[@id ="password"]/div[1]/div / div[1]/input')
-  passWordBox.send_keys(passWord): 
-
-  nextButton = driver.find_elements_by_xpath('//*[@id ="passwordNext"]'): 
-  nextButton[0].click():
-
-  print('Login Successful...!!'): 
-  except:
-  print('Login Failed')
-
+bstack_options = {
+    "os" : "Windows",
+    "osVersion" : "10",
+    "buildName" : "BStack Build Name: " + buildName,
+    "projectName" : "BStack Project Name: " + projectName,
+    "localIdentifier": localIdentifier,
+    "seleniumVersion" : "4.0.0",
+    "userName": username,
+    "accessKey": accessKey
+}
+options = ChromeOptions()
+options.set_capability('bstack:options', bstack_options)
+driver = webdriver.Remote(
+    command_executor="https://hub.browserstack.com/wd/hub",
+    options=options)
+driver.get("http://localhost:8099") # HTTP Server should be running on 8099 port of GitHub runner
+print(driver.title)
+driver.quit()
