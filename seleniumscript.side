@@ -1,8 +1,8 @@
-Webdriver driver = new ChromeDriver();
-System.setProperty("webdriver.chrome.driver", "C:\WebDriver\bin");
-
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
+
+Webdriver driver = new ChromeDriver();
+System.setProperty("webdriver.chrome.driver", "C:\WebDriver\bin");
 
 print('Enter the Amazonid and password')
 amazonId, passWord = map(str, input().split())
