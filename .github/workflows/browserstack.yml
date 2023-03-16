@@ -3,13 +3,14 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from webdriver_manager.chrome import ChromeDriverManager
 
+
 userName = os.environ['roshanchittoor_eu4FN9']
 accessKey = os.environ['R11Vpxwkye3iYPty1ZfT']
 localIdentifier = os.environ['BROWSERSTACK_LOCAL_IDENTIFIER']
 buildName = os.environ['BROWSERSTACK_BUILD_NAME']
 projectName = os.environ['BROWSERSTACK_PROJECT_NAME']
-browserstack/github-actions/setup-env@master
-browserstack/github-actions/setup-local@master
+uses: browserstack/github-actions/setup-env@master
+uses: browserstack/github-actions/setup-local@master
 
 bstack_options = 
 { 
